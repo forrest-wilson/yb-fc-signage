@@ -104,8 +104,13 @@
         totalCost = (letters * size) + colorSelection;
 
         document.getElementById("signOutput").textContent = casedValue;
-        document.getElementById("signOutput").style.backgroundColor = signColor;
-        document.getElementById("signOutput").style.fontSize = fontSize;
+
+        // Assigns CSS to the element
+        Object.assign(document.getElementById("signOutput").style, {
+            backgroundColor: signColor,
+            fontSize: fontSize
+        });
+
         document.getElementById("cost").textContent = "$" + totalCost + ".00";
     });
 })();
