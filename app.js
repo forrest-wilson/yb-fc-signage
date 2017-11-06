@@ -4,6 +4,7 @@
 
     var signColor;
     var casedValue;
+    var fontSize;
 
     function validate() {
         if (signText.value.length == 0) {
@@ -18,25 +19,29 @@
     }
 
     function letterSize() {
-        if (document.querySelector('input[name="size"]:checked').value != null) {
+        if (document.querySelector('input[name="size"]:checked') != null) {
             var selectedSize = document.querySelector('input[name="size"]:checked').value;
 
             switch (selectedSize) {
                 case "small":
+                    fontSize = "2em";
                     return 10;
                     break;
                 case "large":
+                    fontSize = "3em";
                     return 20;
                     break;
                 default: 
                     console.log('please select a size');
                     break;
             }
+        } else {
+            alert("Please select a size");
         }
     }
 
     function casing() {
-        if (document.querySelector('input[name="casing"]:checked').value != null) {
+        if (document.querySelector('input[name="casing"]:checked') != null) {
             var upperOrLower = document.querySelector('input[name="casing"]:checked').value;
 
             switch (upperOrLower) {
@@ -56,11 +61,13 @@
                     console.log('please select a casing');
                     break;
             }
+        } else {
+            alert("Please select a casing option");
         }
     }
 
     function color() {
-        if (document.querySelector('input[name="color"]:checked').value != null) {
+        if (document.querySelector('input[name="color"]:checked') != null) {
             var colorSelection = document.querySelector('input[name="color"]:checked').value;
 
             switch (colorSelection) {
@@ -80,6 +87,8 @@
                     console.log('please select a color');
                     break;
             }
+        } else {
+            alert("Please select a color");
         }
     }
 
@@ -96,6 +105,7 @@
 
         document.getElementById("signOutput").textContent = casedValue;
         document.getElementById("signOutput").style.backgroundColor = signColor;
+        document.getElementById("signOutput").style.fontSize = fontSize;
         document.getElementById("cost").textContent = "$" + totalCost + ".00";
     });
 })();
