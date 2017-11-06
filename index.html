@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Signage Estimate</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>What do you want your sign to say?</legend>
+            <input type="text" id="signText">
+        </fieldset>
+        <button id="getEstimate">Get Estimate</button>
+    </form>
+
+    <script>
+    (function() {
+        var getEstimateButton = document.getElementById("getEstimate"),
+            signText = document.getElementById("signText");
+
+        getEstimateButton.addEventListener("click", function(e) {
+            if (signText.value.length == 0) {
+                alert("Please enter some text for your sign");
+            } else {
+                console.log("Next");
+            }
+
+            e.preventDefault();
+        });
+    })();
+    </script>
+</body>
+</html>
