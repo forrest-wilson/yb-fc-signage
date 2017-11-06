@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Signage Estimate</title>
+
+    <style>
+        #signOutput {
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <form>
@@ -12,24 +18,60 @@
             <legend>What do you want your sign to say?</legend>
             <input type="text" id="signText">
         </fieldset>
+
+        <fieldset>
+            <legend>What size do you want your letters?</legend>
+
+            <input type="radio" name="size" value="small" id="small">
+            <label for="small">Small ($10/letter)</label>
+
+            <br>
+
+            <input type="radio" name="size" value="large" id="large">
+            <label for="large">Large ($20/letter)</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>How do you want your letters to look?</legend>
+
+            <input type="radio" name="casing" value="uppercase" id="uppercase">
+            <label for="uppercase">Uppercase</label>
+
+            <br>
+
+            <input type="radio" name="casing" value="lowercase" id="lowercase">
+            <label for="lowercase">Lowercase</label>
+
+            <br>
+            
+            <input type="radio" name="casing" value="none" id="none">
+            <label for="none">As I've written it</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>What do you want the background colour to be?</legend>
+
+            <input type="radio" name="color" value="black" id="black">
+            <label for="black">Black (No Cost)</label>
+
+            <br>
+
+            <input type="radio" name="color" value="red" id="red">
+            <label for="red">Red ($15 Extra)</label>
+
+            <br>
+            
+            <input type="radio" name="color" value="blue" id="blue">
+            <label for="blue">Blue ($30 Extra)</label>
+        </fieldset>
+
         <button id="getEstimate">Get Estimate</button>
     </form>
 
-    <script>
-    (function() {
-        var getEstimateButton = document.getElementById("getEstimate"),
-            signText = document.getElementById("signText");
+    <div id="signOutput"></div>
 
-        getEstimateButton.addEventListener("click", function(e) {
-            if (signText.value.length == 0) {
-                alert("Please enter some text for your sign");
-            } else {
-                console.log("Next");
-            }
+    <h2 id="cost"></h2>
 
-            e.preventDefault();
-        });
-    })();
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
